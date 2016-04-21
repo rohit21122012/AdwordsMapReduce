@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56a915e6-155a-4ab1-a245-2b452ec5d4a7" name="Default" comment="" />
+    <list default="true" id="56a915e6-155a-4ab1-a245-2b452ec5d4a7" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Adsense/TestMapReduce$DoubleMaxReducer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Adsense/TestMapReduce$PhraseBidMapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Adsense/TestMapReduce.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Adwords.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
