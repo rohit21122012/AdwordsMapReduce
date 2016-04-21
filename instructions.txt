@@ -1,0 +1,6 @@
+bash /usr/local/hadoop/sbin/start-dfs.sh
+bash /usr/local/hadoop/sbin/start-yarn.sh 
+jps
+hadoop fs -mkdir /adsense
+hadoop dfs -copyFromLocal ydata-ysm-advertiser-bids-v1_0.txt /adsense
+
