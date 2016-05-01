@@ -11,7 +11,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class TestMapReduce {
-
+    //test comment
     private static class PhraseBidMapper extends Mapper<LongWritable, Text, LongWritable, DoubleWritable> {
         private LongWritable phraseIDKey = new LongWritable();
         private DoubleWritable bidValue = new DoubleWritable();
