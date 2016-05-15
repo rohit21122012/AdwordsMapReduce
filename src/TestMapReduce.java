@@ -22,12 +22,17 @@ public class TestMapReduce {
             String[] splitLine = line.split("\t");
             size = splitLine.length;
             //int[] keyphrase = new int[size-6];
-            bid = Integer.parseInt(splitLine[4]);
-            impression = Integer.parseInt(splitLine[5]);
-            click = Integer.parseInt(splitLine[6]);
-            rank = Integer.parseInt(splitLine[2]);
-            for(int i = 0; i<size-6;i++){
-                t.set(splitLine[i+2]);
+//            bid = Integer.parseInt(splitLine[4]);
+//            impression = Integer.parseInt(splitLine[5]);
+//            click = Integer.parseInt(splitLine[6]);
+//            rank = Integer.parseInt(splitLine[2]);
+//            for(int i = 0; i<size-6;i++){
+//                t.set(splitLine[i+2]);
+//                bidValue.set(1);
+//                context.write(t,bidValue);
+            String[] keyphrase = splitLine[3].split(" ");
+            if (keyphrase.length==1){
+                t.set(keyphrase[0]);
                 bidValue.set(1);
                 context.write(t,bidValue);
             }
@@ -42,7 +47,11 @@ public class TestMapReduce {
         private DoubleWritable maxBidValue = new DoubleWritable();
         public void reduce(Text key, Iterable<DoubleWritable> values, Context context) throws IOException, InterruptedException{
             Double max = 0.0;
-            maxBidValue.set(0);
+            int sum = 0;
+            for (DoubleWritable val : values) {
+                sum += val.get();
+            }
+            maxBidValue.set(sum);
             context.write(key, maxBidValue);
         }
     }
@@ -52,6 +61,7 @@ public class TestMapReduce {
         Job job = Job.getInstance(conf, "Test Map Reduce");
         job.setJarByClass(TestMapReduce.class);
         job.setMapperClass(PhraseBidMapper.class);
+        job.setMapOutputKeyClass(Text.class);
         job.setCombinerClass(DoubleMaxReducer.class);
         job.setReducerClass(DoubleMaxReducer.class);
         job.setOutputKeyClass(LongWritable.class);
