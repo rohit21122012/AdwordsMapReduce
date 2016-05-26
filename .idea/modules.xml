@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Adsense.iml" filepath="$PROJECT_DIR$/Adsense.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/Adwords.iml" filepath="$PROJECT_DIR$/src/Adwords.iml" />
     </modules>
   </component>
 </project>
